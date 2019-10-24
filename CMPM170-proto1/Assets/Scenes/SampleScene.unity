@@ -1380,6 +1380,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dadBod: {fileID: 1619278794}
   moveSpeed: 5
+  forward: 273
+  backward: 274
+  left: 276
+  right: 275
 --- !u!50 &1619278794
 Rigidbody2D:
   serializedVersion: 4
@@ -1392,7 +1396,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -1859,6 +1863,7 @@ GameObject:
   - component: {fileID: 2097501066}
   - component: {fileID: 2097501067}
   - component: {fileID: 2097501068}
+  - component: {fileID: 2097501069}
   m_Layer: 0
   m_Name: Baby_3
   m_TagString: Baby
@@ -1975,6 +1980,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.2, y: 0.2}
   m_EdgeRadius: 0
+--- !u!114 &2097501069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2097501064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e59ab09a646a87f44a9b024b40879c7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dadBod: {fileID: 2097501067}
+  moveSpeed: 2
+  forward: 119
+  backward: 115
+  left: 97
+  right: 100
 --- !u!1 &2123083125
 GameObject:
   m_ObjectHideFlags: 0
