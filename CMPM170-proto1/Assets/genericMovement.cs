@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class genericMovement : MonoBehaviour
 {
-    public Rigidbody2D dadBod;
+    public Rigidbody2D rigBod;
     public float moveSpeed;
 
     public KeyCode forward;
@@ -41,6 +41,6 @@ public class genericMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        dadBod.MovePosition(dadBod.position + movement * moveSpeed * Time.fixedDeltaTime);
+        rigBod.MovePosition(rigBod.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
 }
