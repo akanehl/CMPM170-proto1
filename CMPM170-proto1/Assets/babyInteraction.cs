@@ -8,6 +8,7 @@ public class babyInteraction : MonoBehaviour
     bool inRange = false;
     GameObject interactObj;
     public GameObject indicatorPrefab;
+    GameObject indicator;
     //boolean to keep track of charge
     bool isCharged = false;
 
@@ -15,12 +16,14 @@ public class babyInteraction : MonoBehaviour
     void Start()
     {
         interactObj = null;
+        indicator = null;
+        Debug.Log(this.gameObject.name);
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        checkInput();
     }
 
     void setFire()
@@ -31,6 +34,7 @@ public class babyInteraction : MonoBehaviour
     //function to be called when player attempts to interact
     void interact()
     {
+        Debug.Log("interacting");
         if (inRange)
         {
             if (interactObj.tag == "Outlet")
@@ -49,11 +53,14 @@ public class babyInteraction : MonoBehaviour
         if (!isCharged)
         {
             isCharged = true;
+            indicator = Instantiate(indicatorPrefab,new Vector2(transform.position.x, transform.position.y + 1), Quaternion.identity);
+            indicator.gameObject.transform.parent = this.gameObject.transform;
         }
     }
 
     void OnTriggerEnter2D(Collider2D col)
     {
+        Debug.Log("inrange");
         interactObj = col.gameObject;
         inRange = true;
     }
@@ -68,6 +75,7 @@ public class babyInteraction : MonoBehaviour
         {
             Debug.Log("extinguished");
             isCharged = false;
+            Destroy(indicator);
         }
     }
     public void checkInput()
@@ -82,7 +90,7 @@ public class babyInteraction : MonoBehaviour
             {
                 interact();
             }
-            else if (this.gameObject.name == "Baby_1" && Input.GetKeyDown(KeyCode.O))
+            else if (this.gameObject.name == "Baby_3" && Input.GetKeyDown(KeyCode.O))
             {
                 interact();
             }

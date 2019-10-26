@@ -7,6 +7,8 @@ TagManager:
   - Walls
   - Dad
   - Baby
+  - Stove
+  - Outlet
   layers:
   - Default
   - TransparentFX
