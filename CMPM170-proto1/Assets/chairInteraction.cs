@@ -16,39 +16,32 @@ public class chairInteraction : MonoBehaviour
     {
         
     }
-	
-	public void setFire()
-    {
-        if (!onFire)
-        {
+    public void setFire(){
+        if (!onFire){
             fireTime = 75.0f;
             onFire = true;
-            Debug.Log(this.gameObject.name + "is on fire for " + fireTime / 60 + " minutes," + fireTime % 60 + " seconds");
+            Debug.Log(this.gameObject.name + "is on fire for " + Mathf.Floor(fireTime/60) + " minutes," + Mathf.Floor(fireTime % 60) + " seconds");
             flame = Instantiate(flamePrefab,new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
         }
-	}
-	
-	public void save()
-    {
-        if (onFire)
-        {
+    }
+    public void save(){
+        if (onFire){
             onFire = false;
             Debug.Log("Extinguished " + this.gameObject.name);
             Destroy(flame);
         }
-	}
+    }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update(){
         if (onFire){
-			fireTime -= Time.fixedDeltaTime;
-			Debug.Log("Chair destroyed in " + Mathf.Round(fireTime/60) + " minutes," + Mathf.Round(fireTime % 60) + " seconds");
-		}
-		if (fireTime <= 0){
+		fireTime -= Time.fixedDeltaTime;
+		Debug.Log("Chair destroyed in " + Mathf.Floor(fireTime/60) + " minutes," + Mathf.Floor(fireTime % 60) + " seconds");
+	}
+	if (fireTime <= 0){
             gameState.GetComponent<gameStateManager>().chairBurned();
             Destroy(flame);
             flame = Instantiate(crossPrefab, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
-		}
+	}
     }
 }
