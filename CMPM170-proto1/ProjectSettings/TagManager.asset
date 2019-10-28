@@ -9,6 +9,7 @@ TagManager:
   - Baby
   - Stove
   - Outlet
+  - Chair
   layers:
   - Default
   - TransparentFX
