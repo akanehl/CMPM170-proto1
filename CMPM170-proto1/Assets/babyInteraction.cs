@@ -28,7 +28,8 @@ public class babyInteraction : MonoBehaviour
 
     void setFire()
     {
-
+        interactObj.GetComponent<chairInteraction>().setFire();
+        sprayed();
     }
 
     //function to be called when player attempts to interact

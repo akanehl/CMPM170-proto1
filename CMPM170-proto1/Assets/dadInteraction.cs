@@ -7,6 +7,8 @@ public class dadInteraction : MonoBehaviour
     //variables to keep track of interactable object in range
     bool inRange = false;
     GameObject interactObj;
+
+    public GameObject stateManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,12 +36,17 @@ public class dadInteraction : MonoBehaviour
             {
                 spray();
             }
+            if (interactObj.tag == "Chair")
+            {
+                extinguish();
+            }
         }
     }
     //function to trigger the cooking event
     void cook()
     {
         Debug.Log("cooking");
+        stateManager.GetComponent<gameStateManager>().Cook();
         //call function in game state management
     }
     //function to spray baby
@@ -58,5 +65,9 @@ public class dadInteraction : MonoBehaviour
     {
         interactObj = null;
         inRange = false;
+    }
+    void extinguish()
+    {
+        interactObj.GetComponent<chairInteraction>().save();
     }
 }
