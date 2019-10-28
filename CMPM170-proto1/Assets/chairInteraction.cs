@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class chairInteraction : MonoBehaviour
 {
-	bool onFire = false;
-	float fireTime = 75.0f;
+    bool onFire = false;
+    float fireTime = 75.0f;
     public GameObject flamePrefab;
     GameObject flame;
     public GameObject crossPrefab;
